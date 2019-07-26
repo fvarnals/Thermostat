@@ -1,7 +1,3 @@
-window.onload = function() {
-  alert("welcome");
-};
-
 $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
@@ -27,11 +23,17 @@ $(document).ready(function() {
     updateTemperature();
   })
 
-  $('#power_saving_off').click(function() {
-    thermostat.powerSavingModeOff();
-    $('#power-saving-status').text('off')
-    updateTemperature();
-  })
+  $('#power-saving-switch').change(function () {
+    if (thermostat.powerSavingMode()) {
+      thermostat.powerSavingModeOff();
+      $('#power-saving-status').text('off')
+      updateTemperature();
+    } else {
+      thermostat.powerSavingModeOn();
+      $('#power-saving-status').text('on')
+      updateTemperature();
+    };
+  });
 
   function updateTemperature() {
     $('#temperature').text(thermostat._temperature);
@@ -66,5 +68,5 @@ $(document).ready(function() {
     var city = $('#current-city').val();
     displayWeather(city);
   })
-  
+
 });

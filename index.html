@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 
 <html>
- <head>
-   <link rel="stylesheet" type="text/css" href="index.css">
-   <title>Greta Thunberg-o-stat</title>
-   <img src= 'greta.jpg' id = 'greta' width='800' height='450'>
- </head>
- <body>
-   <h1>Greta Thunberg-o-stat</h1>
-   <section>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>Greta Thunberg-o-stat</title>
+  <!-- <img src='greta.jpg' id='greta' width='800' height='450'> -->
+</head>
+
+<body>
+  <h1>Greta Thunberg-o-stat</h1>
+  <section>
     <h1>Current temperature: <span id="current-temperature"></span></h1>
     <form id="select-city">
       <input id="current-city" type="text" placeholder="Enter a city"></input>
       <input type="submit"></input>
     </form>
   </section>
-   <h1 id='temperature'></h1>
-   <p>
-     <p><button id="temperature_increase">Increase</button></p></a>
-     <p><button id="temperature_decrease">Decrease</button></p>
-     <p><button id="temperature_reset">Reset</button></p>
-     <p>Power saving mode is <span id="power-saving-status">on</span></p>
-     <button id="power_saving_on">Power Saving On</button>
-     <button id="power_saving_off">Power Saving Off</button>
-   </p>
-   <script src="src/Thermostat.js"></script>
-   <script src="lib/jquery-3.4.1.js"></script>
-   <script src="interface.js"></script>
- </body>
+  <h1 id='temperature'></h1>
+  <p>
+    <p><button id="temperature_increase">Increase</button></p></a>
+    <p><button id="temperature_decrease">Decrease</button></p>
+    <p><button id="temperature_reset">Reset</button></p>
+    <p>Power saving mode is <span id="power-saving-status">on</span></p>
+    <label id="power-saving-switch" class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </p>
+  <script src="src/Thermostat.js"></script>
+  <script src="lib/jquery-3.4.1.js"></script>
+  <script src="interface.js"></script>
+</body>
+
 </html>
