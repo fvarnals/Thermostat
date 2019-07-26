@@ -2,6 +2,12 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
 
+  var slider = document.getElementById("tempRange");
+  slider.oninput = function() {
+    thermostat.changeTemp(this.value)
+    updateTemperature();
+  }
+
   $('#temperature_increase').click(function() {
     thermostat.increase();
     updateTemperature();
@@ -23,14 +29,18 @@ $(document).ready(function() {
     updateTemperature();
   })
 
-  $('#power-saving-switch').change(function () {
+  $('#power-saving-switch').change(function() {
     if (thermostat.powerSavingMode()) {
       thermostat.powerSavingModeOff();
       $('#power-saving-status').text('off')
+      $('#tempRange').attr('max', 35)
+      $('#rangeSlider').attr('class', thermostat.PSM())
       updateTemperature();
     } else {
       thermostat.powerSavingModeOn();
       $('#power-saving-status').text('on')
+      $('#tempRange').attr('max', 25)
+      $('#rangeSlider').attr('class', thermostat.PSM())
       updateTemperature();
     };
   });
