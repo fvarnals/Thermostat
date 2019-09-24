@@ -1,5 +1,4 @@
 # Greta Thunberg-o-Stat
------------------------------
 
 ## Virtual Thermostat Control Interface - Inspired by Greta Thundberg
 
